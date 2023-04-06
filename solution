@@ -1,0 +1,469 @@
+--creating tables--
+create table teacher (
+  id integer primary key,
+  teacher_name varchar(30),
+  age integer
+  );
+
+create table student (
+  id integer primary key,
+  student_name varchar(30) unique,
+  GPA decimal
+  );
+  
+create table class (
+  id integer primary key,
+  subject varchar(30),
+  size integer,
+  teacher_id integer references teacher(id)
+  );
+  
+create table classes_students (
+  students_name varchar(30) references student(student_name),
+  class_id integer references class(id) unique,
+  primary key(students_name, class_id)
+  );
+  
+create table school (
+  school_name varchar(20) primary key,
+  years varchar(10)
+  );
+
+create table year (
+  year varchar(10) primary key,
+  student_id integer references student(id),
+  schools_name varchar(20) references school(school_name)
+  );
+
+--insert teacher data--
+insert into teacher (id, teacher_name, age)
+values (
+  1,
+  'Jeff Smith',
+  34
+  );
+
+insert into teacher (id, teacher_name, age)
+values (
+  2,
+  'Dana Peters',
+  47
+  );
+
+insert into teacher (id, teacher_name, age)
+values (
+  3,
+  'David Robertson',
+  58
+  );
+  
+insert into teacher (id, teacher_name, age)
+values (
+  4,
+  'Michelle Martin',
+  28
+  );
+  
+insert into teacher (id, teacher_name, age)
+values (
+  5,
+  'Ben Stevens',
+  36
+  );
+
+--insert student data--
+insert into student (id, student_name, gpa)
+values (
+  1,
+  'Shelly',
+  3.2
+  );
+  
+insert into student (id, student_name, gpa)
+values (
+  2,
+  'Timmy',
+  2.7
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  3,
+  'Andrew',
+  3.6
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  4,
+  'Pete',
+  2.8
+  );
+  
+insert into student (id, student_name, gpa)
+values (
+  5,
+  'Steve',
+  4.0
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  6,
+  'Mike',
+  2.4
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  7,
+  'Han',
+  3.4
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  8,
+  'Fern',
+  3.5
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  9,
+  'Ryan',
+  2.9
+  );
+
+insert into student (id, student_name, gpa)
+values (
+  10,
+  'Michelle',
+  3.7
+  );
+
+--insert class data--
+insert into class (id, subject, size, teacher_id)
+values (
+  1,
+  'Math',
+  10,
+  2
+);
+
+insert into class (id, subject, size, teacher_id)
+values (
+  2,
+  'English',
+  20,
+  1
+);
+
+insert into class (id, subject, size, teacher_id)
+values (
+  3,
+  'Poetry',
+  15,
+  5
+);
+
+insert into class (id, subject, size, teacher_id)
+values (
+  4,
+  'Science',
+  12,
+  4
+);
+
+insert into class (id, subject, size, teacher_id)
+values (
+  5,
+  'History',
+  15,
+  1
+);
+
+insert into class (id, subject, size, teacher_id)
+values (
+  6,
+  'Gym',
+  20,
+  3
+);
+
+--insert classes_students data--
+insert into classes_students (students_name, class_id)
+values (
+  'Shelly',
+  6
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Shelly',
+  4
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Shelly',
+  2
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Timmy',
+  1
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Timmy',
+  3
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Timmy',
+  5
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Andrew',
+  5
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Andrew',
+  4
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Andrew',
+  2
+);
+  
+insert into classes_students (students_name, class_id)
+values (
+  'Pete',
+  6
+); 
+
+insert into classes_students (students_name, class_id)
+values (
+  'Pete',
+  1
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Pete',
+  4
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Steve',
+  1
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Steve',
+  5
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Steve',
+  3
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Mike',
+  2
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Mike',
+  5
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Mike',
+  4
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Han',
+  6
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Han',
+  2
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Han',
+  3
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Fern',
+  1
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Fern',
+  6
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Fern',
+  5
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Ryan',
+  2
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Ryan',
+  4
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Ryan',
+  5
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Michelle',
+  1
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Michelle',
+  2
+);
+
+insert into classes_students (students_name, class_id)
+values (
+  'Michelle',
+  3
+);
+
+--insert data into school --
+insert into school (school_name, years)
+values (
+  'High School',
+  9-12
+);
+
+insert into school (school_name, years)
+values (
+  'Middle School',
+  6-8
+);
+
+insert into school (school_name, years)
+values (
+  'Elementary School',
+  1-5
+);
+
+insert into school (school_name, years)
+values (
+  'PreSchool',
+  'K'
+);
+
+--insert data into year--
+insert into year (year, student_id, schools_name)
+values (
+  12,
+  1,
+  'High School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  11,
+  2,
+  'High School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  10,
+  3,
+  'High School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  9,
+  4,
+  'High School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  8,
+  5,
+  'Middle School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  6,
+  6,
+  'Middle School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  5,
+  7,
+  'Elementary School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  3,
+  8,
+  'Elementary School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  1,
+  9,
+  'Elementary School'
+);
+
+insert into year (year, student_id, schools_name)
+values (
+  K,
+  10,
+  'PreSchool'
+);
